@@ -13,7 +13,7 @@ public class CurrencyConverter {
     public CurrencyConverter() {
     }
 
-    public double convert(int SEKprice) throws IOException {
+    public double convert(double SEKprice) throws IOException {
 
         String apiKey = "74017e2a914ff9f3243c1302";
         String apiUrl = "https://v6.exchangerate-api.com/v6/" + apiKey + "/pair/SEK/EUR/" + SEKprice;

@@ -49,4 +49,16 @@ public class BookingServices implements BookingServicesInterface {
 
         return b;
     }
+
+    @Override
+    public List<Booking> getBookingByCustomer(int id) throws IOException {
+        CurrencyConverter currencyConverter = new CurrencyConverter();
+        List<Booking> bookings = bookingRepository.findByCustomer(id);
+        for(Booking booking: bookings){
+            booking.setPriceInEuro(currencyConverter.convert(booking.getPrice()));
+        }
+        return bookings;
+    }
+
+
 }

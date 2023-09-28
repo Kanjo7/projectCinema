@@ -41,6 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v4/movies").hasRole("USER")
                 .antMatchers("/api/v4/bookroom").hasRole("USER")
                 .antMatchers("/api/v4/updatebooking").hasRole("USER")
+                .antMatchers("/api/v4/mybookings/{id}").hasRole("USER")
                 .and()
                 .csrf().disable()
                 .httpBasic();

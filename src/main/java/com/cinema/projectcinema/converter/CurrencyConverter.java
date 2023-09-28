@@ -17,6 +17,7 @@ public class CurrencyConverter {
 
         String apiKey = "74017e2a914ff9f3243c1302";
         String apiUrl = "https://v6.exchangerate-api.com/v6/" + apiKey + "/pair/SEK/EUR/" + SEKprice;
+
         //test https://v6.exchangerate-api.com/v6/74017e2a914ff9f3243c1302/pair/SEK/EUR/500
 
         URL url = new URL(apiUrl);

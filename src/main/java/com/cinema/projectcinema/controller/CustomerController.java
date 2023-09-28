@@ -18,7 +18,7 @@ public class CustomerController {
     @Autowired
     private CustomerServices customerServices;
 
-    @PostMapping("/api/v4/add-customer")
+    @PostMapping("/api/v4/addcustomer")
     public ResponseEntity<Customer> saveCustomer(@RequestBody Customer customer) {
         logger.info("New customer added");
 
@@ -27,7 +27,7 @@ public class CustomerController {
 
     @GetMapping("/api/v4/customers")
     public List<Customer> getAllCustomers() {
-        logger.info("Showing all customers");
+        logger.info("Admin Showing all customers");
 
         return customerServices.getAllCustomers();
     }

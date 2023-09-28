@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MovieServices {
+public class MovieServices implements MovieServicesInterface {
 
     @Autowired
     private MovieRepository movieRepository;
@@ -18,20 +18,23 @@ public class MovieServices {
         this.movieRepository = movieRepository;
     }
 
+    @Override
     public Movie saveMovie(Movie movie) {
         return movieRepository.save(movie);
     }
 
+    @Override
     public void deleteMovie(int id) {
         movieRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Movie", "Id", id));
         movieRepository.deleteById(id);
     }
 
+    @Override
     public List<Movie> getAllMovies() {
         return movieRepository.findAll();
     }
 
-
+    @Override
     public Movie updateMovie(Movie movie, int id) {
         Movie m = movieRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Movie", "id", id));
 

@@ -13,4 +13,5 @@ public interface BookingServicesInterface {
     Booking updateBooking(Booking booking, int id);
 
     void deleteBooking(int id);
+
 }

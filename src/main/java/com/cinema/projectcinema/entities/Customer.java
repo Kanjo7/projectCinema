@@ -17,26 +17,18 @@ public class Customer {
 
     @Column(length = 45)
     private String userName;
-    @Column(length = 45)
-    private String email;
-
-    @Column(length = 45)
-    private String phone;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Address address;
 
-
     public Customer() {
     }
 
-    public Customer(int id, String firstName, String lastName, String userName, String email, String phone, Address address) {
+    public Customer(int id, String firstName, String lastName, String userName, Address address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
-        this.email = email;
-        this.phone = phone;
         this.address = address;
     }
 
@@ -70,22 +62,6 @@ public class Customer {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public Address getAddress() {

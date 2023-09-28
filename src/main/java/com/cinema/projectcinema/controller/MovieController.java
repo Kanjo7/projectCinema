@@ -18,21 +18,19 @@ public class MovieController {
     @Autowired
     MovieServices movieServices;
 
-
     @PostMapping("/api/v4/add-movie")
     public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
-        logger.info("New Movie added");
+        logger.info("New Movie added by Admin");
 
         return new ResponseEntity<>(movieServices.saveMovie(movie), HttpStatus.CREATED);
     }
 
     @GetMapping("/api/v4/movies")
     public List<Movie> getAllMovies() {
-        logger.info("Showing all Movies");
+        logger.info("Showing all Movies to customer");
 
         return movieServices.getAllMovies();
     }
-
 
     @PutMapping("/api/v4/updatemovie")
     public ResponseEntity<Movie> updateMovie(@PathVariable("id") int id, @RequestBody Movie movie) {
@@ -44,7 +42,7 @@ public class MovieController {
     @DeleteMapping("/api/deletemovie/{id}")
     public ResponseEntity<String> deleteCustomer(@PathVariable("id") int id) {
         movieServices.deleteMovie(id);
-        logger.info("Movie deleted!");
+        logger.info("Movie deleted by Admin!");
 
         return new ResponseEntity<String>("Customer deleted!", HttpStatus.OK);
     }

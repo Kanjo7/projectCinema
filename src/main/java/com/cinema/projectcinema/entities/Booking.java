@@ -11,22 +11,36 @@ public class Booking {
     private int id;
 
     @Column(length = 45)
-    private int eventRoom;
+    private int guestsInRoom;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerId")
+    private Customer customer;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cinemaRoomId")
+    private CinemaRoom cinemaRoom;
 
     @Column(length = 45)
-    private int maxGuestsInRoom;
+    private boolean speaker;
 
     @Column(length = 45)
-    private double totalCost;
+    private double price;
+
+    @Transient
+    private double priceInEuro;
 
     public Booking() {
     }
 
-    public Booking(int id, int eventRoom, int maxGuestsInRoom, double totalCost) {
+    public Booking(int id, int guestsInRoom, Customer customer, CinemaRoom cinemaRoom, boolean speaker, double price, double priceInEuro) {
         this.id = id;
-        this.eventRoom = eventRoom;
-        this.maxGuestsInRoom = maxGuestsInRoom;
-        this.totalCost = totalCost;
+        this.guestsInRoom = guestsInRoom;
+        this.customer = customer;
+        this.cinemaRoom = cinemaRoom;
+        this.speaker = speaker;
+        this.price = price;
+        this.priceInEuro = priceInEuro;
     }
 
     public int getId() {
@@ -37,27 +51,51 @@ public class Booking {
         this.id = id;
     }
 
-    public int getEventRoom() {
-        return eventRoom;
+    public int getGuestsInRoom() {
+        return guestsInRoom;
     }
 
-    public void setEventRoom(int eventRoom) {
-        this.eventRoom = eventRoom;
+    public void setGuestsInRoom(int guestsInRoom) {
+        this.guestsInRoom = guestsInRoom;
     }
 
-    public int getMaxGuestsInRoom() {
-        return maxGuestsInRoom;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setMaxGuestsInRoom(int maxGuestsInRoom) {
-        this.maxGuestsInRoom = maxGuestsInRoom;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public double getTotalCost() {
-        return totalCost;
+    public CinemaRoom getCinemaRoom() {
+        return cinemaRoom;
     }
 
-    public void setTotalCost(double totalCost) {
-        this.totalCost = totalCost;
+    public void setCinemaRoom(CinemaRoom cinemaRoom) {
+        this.cinemaRoom = cinemaRoom;
+    }
+
+    public boolean isSpeaker() {
+        return speaker;
+    }
+
+    public void setSpeaker(boolean speaker) {
+        this.speaker = speaker;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getPriceInEuro() {
+        return priceInEuro;
+    }
+
+    public void setPriceInEuro(double priceInEuro) {
+        this.priceInEuro = priceInEuro;
     }
 }

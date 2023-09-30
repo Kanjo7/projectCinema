@@ -27,6 +27,8 @@ public class BookingController {
 
     @GetMapping("/api/v4/mybookings/{id}")
     public List<Booking> getBookingByCustomer(@PathVariable("id")int id) throws IOException {
+        logger.info("show my bookings!");
+
         return bookingServices.getBookingByCustomer(id);
     }
 

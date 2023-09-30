@@ -44,6 +44,6 @@ public class MovieController {
         movieServices.deleteMovie(id);
         logger.info("Movie deleted by Admin!");
 
-        return new ResponseEntity<String>("Customer deleted!", HttpStatus.OK);
+        return new ResponseEntity<String>("Movie deleted!", HttpStatus.OK);
     }
 }
